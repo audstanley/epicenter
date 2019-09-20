@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 
 // Routes, and templates
 
+
 import './navbar.html';
 import '../lib/navRoutes.js'
 import './main.html';
