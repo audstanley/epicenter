@@ -1,0 +1,30 @@
+
+
+
+
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>Everyone has pressed the globalCounter button {{globalCounter}} times.</p>
+  <p>You've pressed the counter button {{counter}} times.</p>
+  <p style="color:rgb(98, 98, 98);"> Temperature in Lake Forest: {{shit}} </p>
+  <p>stuff from the database: </p>
+  {{#each tasks}}
+    <p> * {{data}}</p>
+  {{/each}}
+</template>
+
+<template name="item">
+  THIS IS AN ITEM ROUTE
+</template>
+
+<template name="mainTemplate">
+    <head>
+        <title>meteorTest</title>
+      </head>
+      
+      <body>
+        <h1>Welcome to Basic Temperature!</h1>
+        {{> hello }}
+      </body>
+</template>
