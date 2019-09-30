@@ -2,4 +2,10 @@
 <template name="fileUpload">
     {{> navbar }}
     <!-- do work and your divs here -->
+        {{#with currentUpload}}
+          Uploading <b>{{file.name}}</b>:
+          <span id="progress">{{progress.get}}%</span>
+        {{else}}
+          <input id="fileInput" type="file" />
+        {{/with}}
 </template>

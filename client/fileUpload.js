@@ -1,61 +1,66 @@
-// Richard Stanley
-import { Template } from 'meteor/templating';
+import { Template }    from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { Tasks } from '../imports/api/tasks.js';
 import { Meteor } from 'meteor/meteor';
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-//   this.globalCounter = new ReactiveVar(0);
-//   this.shit = ReactiveVar('Hit the click me buttoeteorn to find out');
-//   this.tasks = ReactiveVar({data: 'no data'});
-// });
+Template.fileUpload.onCreated(function () {
+  this.currentUpload = new ReactiveVar(false);
+});
 
-// Template.hello.helpers({
-//   globalCounter() {
-//     return Template.instance().globalCounter.get();
-//   },
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-//   shit() {
-//     return Template.instance().shit.get();
-//   },
-//   tasks() {
-//     console.log(Tasks.find({}, {limit:1}).fetch()[0]);
-//     return Tasks.find({}, {limit: 10});
-//   },
+Template.fileUpload.helpers({
+  currentUpload() {
+    return Template.instance().currentUpload.get();
+  }
+});
 
-// });
+Template.fileUpload.events({
+  'change #fileInput'(e, template) {
+    if (e.currentTarget.files && e.currentTarget.files[0]) {
+      // We upload only one file, in case
+      // multiple files were selected
+      const upload = Images.insert({
+        file: e.currentTarget.files[0],
+        streams: 'dynamic',
+        chunkSize: 'dynamic'
+      }, false);
 
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     event.preventDefault();
-//     // increment the counter when button is clicked
-//     //instance.globalCounter.set(instance.globalCounter.get() + 1);
-//     instance.counter.set(instance.counter.get() + 1);
+      upload.on('start', function () {
+        template.currentUpload.set(this);
+      });
 
-//     instance.tasks.set(instance.tasks.get());
-//     //saveToDisk(instance.globalCounter.get().toString())
-//     Meteor.call('helloWorld', Template.instance().globalCounter.get(), (error, result) => {
-//       if (error) {
-//         alert(error);
-//       } else {
-//         instance.shit.set(result);
-//       }
-//     });
+      upload.on('end', function (error, fileObj) {
+        if (error) {
+          alert('Error during upload: ' + error);
+        } else {
+          //alert('File "' + fileObj.name + '" successfully uploaded');
+          console.log(fileObj);
+          Meteor.call('makeTorrentFromUploadedFile', fileObj, (error, result) => {
+            if (error)console.log(error);
+            else console.log(result);
+          });
+        }
+        template.currentUpload.set(false);
+      });
 
-//     Meteor.call('globalCounterFunc', Template.instance().globalCounter.get(), (error, result) => {
-//       if (error) {
-//         alert(error);
-//       } else {
-//         setTimeout(() => {
-//           instance.globalCounter.set(result);
-//         }, 1000)
-        
-//       }
-//     })
-//   },
+      upload.start();
+    }
+  }
+});
 
-// });
+
+const Images = new FilesCollection({
+  collectionName: 'Images',
+  allowClientCode: false, // Disallow remove files from Client
+  onBeforeUpload(file) {
+    return true;
+  }
+});
+
+// if (Meteor.isClient) {
+//   Meteor.subscribe('files.images.all');
+// }
+
+// if (Meteor.isServer) {
+//   Meteor.publish('files.images.all', function () {
+//     return Images.find().cursor;
+//   });
+// }
