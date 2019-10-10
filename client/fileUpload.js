@@ -48,7 +48,7 @@ Template.fileUpload.events({
 
 
 const Images = new FilesCollection({
-  collectionName: 'Images',
+  collectionName: 'Files',
   allowClientCode: false, // Disallow remove files from Client
   onBeforeUpload(file) {
     return true;
