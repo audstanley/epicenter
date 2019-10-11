@@ -2,4 +2,15 @@
 <template name="fileUpload">
     {{> navbar }}
     <!-- do work and your divs here -->
+      <div class="uploadBoxArea">
+        {{#with currentUpload}}
+          Uploading <b>{{file.name}}</b>:
+          <span id="progress">{{progress.get}}%</span>
+        {{else}}
+          <input type="file" name="file" id="fileInput" class="inputfile" />
+          <label for="fileInput">Upload</label>
+          
+          
+        {{/with}}
+      </div> 
 </template>
