@@ -20,7 +20,7 @@ Template.fileUpload.events({
       const upload = Images.insert({
         file: e.currentTarget.files[0],
         streams: 'dynamic',
-        chunkSize: 'dynamic'
+        chunkSize: 'dynamic',
       }, false);
 
       upload.on('start', function () {
