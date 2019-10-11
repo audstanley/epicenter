@@ -5,13 +5,13 @@ import { addFileToTransmission,
     createTorrentFromFileName } from './torrentFunctions/torrentFunctions.js';
 
 const Images = new FilesCollection({
-    collectionName: 'Images',
+    collectionName: 'Files',
     allowClientCode: false, // Disallow remove files from Client
     onBeforeUpload(file) {
       return true;
     }
 });
-  
+
 Meteor.methods({
     makeTorrentFromUploadedFile(fileObj) {
         console.log(fileObj);
