@@ -50,6 +50,7 @@ Template.fileUpload.events({
 const Images = new FilesCollection({
   collectionName: 'Files',
   allowClientCode: false, // Disallow remove files from Client
+  storagePath: "../../../../../public/Files",
   onBeforeUpload(file) {
     return true;
   }

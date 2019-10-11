@@ -7,6 +7,8 @@ import { addFileToTransmission,
 const Images = new FilesCollection({
     collectionName: 'Files',
     allowClientCode: false, // Disallow remove files from Client
+    debug: true,
+    storagePath: "../../../../../public/Files",
     onBeforeUpload(file) {
       return true;
     }
@@ -18,6 +20,6 @@ Meteor.methods({
         return createTorrentFromFileName(`${fileObj.path}`, `${fileObj._storagePath}`)
             .then(o => saveFileToTorrentFolder(o))
             .then(o => addFileToTransmission(o))
-            .catch(e => e);
+            .catch(e => console.log(e));
     }
 });
