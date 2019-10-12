@@ -15,4 +15,4 @@ jobs:
       with:
         message: |
           A ${{ github.event_name }} event was triggered from
-          ${{ repo.namespace }} here at ${{ commit.ref }}
+          ${{ repo.namespace }}
