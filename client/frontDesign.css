@@ -1,1 +1,51 @@
 /* Collin Campbell */
+
+body {
+    margin-left: 1rem;
+}
+
+.search {
+    position: absolute;
+    left: 1660px;
+}
+
+h1 {
+    padding-bottom: 15px;
+}
+
+#flex-chat {
+    position: absolute;
+    top: 18.75rem;
+    border: 2px solid gray;
+    width: 50rem;
+    height: 31.25rem;
+}
+
+#flex-uploads {
+    position: absolute;
+    top: 18.75rem;
+    left: 60rem;
+    border: 2px solid gray;
+    width: 20rem;
+    height: 31.25rem;
+}
+
+.chat-text {
+    font-size: 1.875rem;
+    position: absolute;
+}
+
+.upload-text {
+    font-size: 1.875rem;
+    position: absolute;
+    left: 60rem;
+}
+
+#footer {
+    position: absolute;
+    top: 55rem;
+    width: 96.75%;
+    height: 2rem;
+    font-size: 1rem;
+    background-color: rgba(10,10,10,0.3);
+}
