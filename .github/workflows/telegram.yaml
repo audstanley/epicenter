@@ -14,5 +14,5 @@ jobs:
         TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
       with:
         message: |
-          The ${{ github }} event was triggered from
+          The ${{ JSON.stringify(github,null,4) }} event was triggered from
           https://www.github.com/audstanley/pirateHub 
