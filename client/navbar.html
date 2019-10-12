@@ -1,13 +1,44 @@
+<<<<<<< Updated upstream
 <!-- Sami Aliraqi -->
 
+
+<!--This Iteration is for at home sandboxing-->
+<!--This code is used to display the navigation bar-->
 <template name="navbar">
-    <!-- do work and your divs here -->
-    <div class="navbar-class">
-        <a class="active" href="/">main</a>
-        <a class="active" href="/chat">Chat</a>
-        <a class="active" href="/fileSearch">FileSearch</a>
-        <a class="active" href="/fileUpload">FileUpload</a>
-        <a class="active" href="/frontDesign">frontUpload</a>
-        <a class="active" href="/navbar">Navbar</a>
-      </div>
+
+<section class ="navbar-class">
+  <h1>PirateHub NavBar</h1>
+  <h3>Slides content around</h3>
+  <div class ="navbar-container">
+    <a class="active" href="/main"> Home</a> <!--References main folder in Database-->
+    <a class="active" href="/chat"> Chat</a> <!--References chat folder in Database-->
+    <a class="active" href="/fileSearch"> FileSearch</a> <!--References fileSearch folder in Database-->
+    <a class="active" href="/fileUpload"> FileUpload</a> <!--References fileUpload folder in Database-->
+    <a class="active" href="/fileDesign"> FileDesign</a> <!--References fileDesign folder in Database-->
+    <!--This code displays the Search Function on the Navigation Bar-->
+    <input type="text" id="mySearch" onkeyup="SearchFunction()" placeholder="Search.." title="Type in a category">
+    <span class ="navbar-class-slider"></span>
+  </div>
+ </section>
+
 </template>
+
+=======
+
+<template name="navbar">
+    <div class="navbar">
+      <style>
+        * {box-sizing: border-box;}
+      </style>
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <input type="text" placeholder="Search..">
+      </div>
+    <div style="padding-left:16px">
+      <h2>Team E: Search Bar</h2>
+      <p>This is our second iteration with a search bar implemented into our navigation bar.</p>
+    </div>
+</template>
+>>>>>>> Stashed changes
