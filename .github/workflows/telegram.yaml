@@ -14,4 +14,4 @@ jobs:
         TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
       with:
         message: |
-          A ${{ github.event_name }} event was triggered with ${{ commit }}
+          A ${{ github.event_name }} event was triggered with ${{ github.workflow }}
