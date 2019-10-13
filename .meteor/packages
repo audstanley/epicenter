@@ -22,3 +22,6 @@ insecure
 kadira:blaze-layout
 ostrio:flow-router-extra
 ostrio:files
+accounts-ui
+accounts-google
+meteortesting:mocha
