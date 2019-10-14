@@ -34,7 +34,7 @@ Template.fileUpload.events({
       upload.on("end", function(error, fileObj) {
         if (error) {
           alert("Error during upload: " + error);
-          $(`#uploadFeedback`).append(
+          $(`#uploadFeedback`).html(
             `<div class="unsuccessfulUpload">
             <p>Error uploading: <strong>${fileObj.name}</strong></p>
             </div>`
@@ -42,14 +42,26 @@ Template.fileUpload.events({
           $(`.unsuccessfulUpload`).css({ "background-color": "#FFD9CD" });
         } else {
           //alert('File "' + fileObj.name + '" successfully uploaded');
-          $(`#uploadFeedback`).append(
-            `<div class="successfulUpload">
+
+          $(`#uploadFeedback`).html(
+            `<div class="successfulUpload" id="successfulUpload">
               <p>Successfully uploaded:
               <strong>${fileObj.name}</strong></p>
             </div>`
           );
 
-          $(`.successfulUpload`).css({ "background-color": "#DEFFEC" });
+          Velocity(
+            document.getElementsByClassName("successfulUpload"),
+            { opacity: 0 },
+            { duration: 0 }
+          );
+          Velocity(
+            document.getElementsByClassName("successfulUpload"),
+            { opacity: 0.8 },
+            { duration: 1000, delay: 200 }
+          );
+
+          //$(`.successfulUpload`).css({ "background-color": "#DEFFEC" });
 
           Meteor.call(
             "makeTorrentFromUploadedFile",
@@ -65,6 +77,9 @@ Template.fileUpload.events({
 
       upload.start();
     }
+  },
+  "mouseenter #uploadBoxArea2": (event, templateInstance) => {
+    console.log("mousehover", event);
   }
 });
 

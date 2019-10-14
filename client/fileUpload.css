@@ -24,15 +24,15 @@
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   border-radius: 0.2rem;
+  cursor: pointer; /* "hand" cursor */
+  transition: all 0.3s ease-in;
+  text-align: center;
 }
 
 .inputfile + label:hover {
   background-color: rgb(68, 96, 253);
   box-shadow: 0.2rem 0.2rem 0.2rem rgb(184, 184, 184);
-}
-
-.inputfile + label {
-  cursor: pointer; /* "hand" cursor */
+  transform: scale(1.1);
 }
 
 .inputfile:focus + label {
