@@ -2,49 +2,75 @@
 
 body {
     margin-left: 1rem;
+    min-height: 100%;
+    height: 100%
 }
 
-.search {
+.welcome {
+    padding-bottom: 0px;/* 15px;*/
+}
+
+.window {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chat-window {
+    left: 0;
     position: absolute;
-    left: 1660px;
+    z-index: 0;
+    width: 60%;
+    height: 75%;
+    border: 2px solid gray;
+    top: 9rem;
+    margin-left: 1.55rem;
 }
 
-h1 {
-    padding-bottom: 15px;
+.upload-window {
+    right: 0;
+    position: absolute;
+    z-index: 0;
+    width: 35%;
+    height: 75%;
+    border: 2px solid gray;
+    top: 9rem;
+    margin-right: 1.55rem;
+    
 }
 
-#flex-chat {
+/*.chat-window {
     position: absolute;
     top: 18.75rem;
     border: 2px solid gray;
-    width: 50rem;
+    width: 75%;
     height: 31.25rem;
 }
 
-#flex-uploads {
+.upload-window {
     position: absolute;
     top: 18.75rem;
     left: 60rem;
     border: 2px solid gray;
-    width: 20rem;
+    width: 20%;
     height: 31.25rem;
 }
 
 .chat-text {
     font-size: 1.875rem;
     position: absolute;
+    z-index: 1;
 }
 
 .upload-text {
     font-size: 1.875rem;
     position: absolute;
     left: 60rem;
-}
+}*/
 
-#footer {
+.footer {
     position: absolute;
     top: 55rem;
-    width: 96.75%;
+    width: 97.25%;
     height: 2rem;
     font-size: 1rem;
     background-color: rgba(10,10,10,0.3);
