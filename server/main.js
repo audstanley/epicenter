@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../imports/api/tasks.js';
+import './fileUpload.js';
 
 const fs = require('fs');
 const fetch = require('node-fetch');
@@ -39,6 +40,6 @@ Meteor.methods({
     return newGlobalCounter;    
   }
 
-  
+
 
 })

@@ -1,61 +1,90 @@
-// Richard Stanley
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-import { Tasks } from '../imports/api/tasks.js';
-import { Meteor } from 'meteor/meteor';
+import { Template } from "meteor/templating";
+import { ReactiveVar } from "meteor/reactive-var";
+import { Meteor } from "meteor/meteor";
+import { FilesCollection } from "meteor/ostrio:files";
 
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-//   this.globalCounter = new ReactiveVar(0);
-//   this.shit = ReactiveVar('Hit the click me buttoeteorn to find out');
-//   this.tasks = ReactiveVar({data: 'no data'});
-// });
+Template.fileUpload.onCreated(function() {
+  this.currentUpload = new ReactiveVar(false);
+});
 
-// Template.hello.helpers({
-//   globalCounter() {
-//     return Template.instance().globalCounter.get();
-//   },
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-//   shit() {
-//     return Template.instance().shit.get();
-//   },
-//   tasks() {
-//     console.log(Tasks.find({}, {limit:1}).fetch()[0]);
-//     return Tasks.find({}, {limit: 10});
-//   },
+Template.fileUpload.helpers({
+  currentUpload() {
+    return Template.instance().currentUpload.get();
+  }
+});
 
-// });
+Template.fileUpload.events({
+  "change #fileInput"(event, templateInstance) {
+    if (event.currentTarget.files && event.currentTarget.files[0]) {
+      // We upload only one file, in case
+      // multiple files were selected
+      const upload = Images.insert(
+        {
+          file: event.currentTarget.files[0],
+          streams: "dynamic",
+          chunkSize: "dynamic"
+        },
+        false
+      );
 
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     event.preventDefault();
-//     // increment the counter when button is clicked
-//     //instance.globalCounter.set(instance.globalCounter.get() + 1);
-//     instance.counter.set(instance.counter.get() + 1);
+      upload.on("start", function() {
+        templateInstance.currentUpload.set(this);
+      });
 
-//     instance.tasks.set(instance.tasks.get());
-//     //saveToDisk(instance.globalCounter.get().toString())
-//     Meteor.call('helloWorld', Template.instance().globalCounter.get(), (error, result) => {
-//       if (error) {
-//         alert(error);
-//       } else {
-//         instance.shit.set(result);
-//       }
-//     });
+      upload.on("end", function(error, fileObj) {
+        if (error) {
+          alert("Error during upload: " + error);
+          $(`#uploadFeedback`).html(
+            `<div class="unsuccessfulUpload">
+            <p>Error uploading: <strong>${fileObj.name}</strong></p>
+            </div>`
+          );
+          $(`.unsuccessfulUpload`).css({ "background-color": "#FFD9CD" });
+        } else {
+          //alert('File "' + fileObj.name + '" successfully uploaded');
 
-//     Meteor.call('globalCounterFunc', Template.instance().globalCounter.get(), (error, result) => {
-//       if (error) {
-//         alert(error);
-//       } else {
-//         setTimeout(() => {
-//           instance.globalCounter.set(result);
-//         }, 1000)
-        
-//       }
-//     })
-//   },
+          $(`#uploadFeedback`).html(
+            `<div class="successfulUpload" id="successfulUpload">
+              <p>Successfully uploaded:
+              <strong>${fileObj.name}</strong></p>
+            </div>`
+          );
 
-// });
+          Velocity(
+            document.getElementsByClassName("successfulUpload"),
+            { opacity: 0 },
+            { duration: 0 }
+          );
+          Velocity(
+            document.getElementsByClassName("successfulUpload"),
+            { opacity: 0.8 },
+            { duration: 1000, delay: 200 }
+          );
+
+          //$(`.successfulUpload`).css({ "background-color": "#DEFFEC" });
+
+          Meteor.call(
+            "makeTorrentFromUploadedFile",
+            fileObj,
+            (error, result) => {
+              if (error) console.log(error);
+              else console.log(result);
+            }
+          );
+        }
+        templateInstance.currentUpload.set(false);
+      });
+
+      upload.start();
+    }
+  },
+  "mouseenter #uploadBoxArea2": (event, templateInstance) => {
+    console.log("mousehover", event);
+  }
+});
+
+const Images = new FilesCollection({
+  collectionName: "Files",
+  allowClientCode: false, // Disallow remove files from Client
+  storagePath: "../../../../../public/Files"
+});
