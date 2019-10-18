@@ -5,8 +5,6 @@ import { Meteor } from 'meteor/meteor';
 
 // Routes, and templates
 
-import './velocity';
-
 import './chat.css'
 import './chat.html';
 import './chat.js'
