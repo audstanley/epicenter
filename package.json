@@ -1,5 +1,5 @@
 {
-  "name": "pirateHub",
+  "name": "epicenter",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "bcrypt": "^3.0.6",
     "create-torrent": "^4.4.1",
     "express": "^4.17.1",
     "meteor-node-stubs": "^0.4.1",
