@@ -1,2 +1,2 @@
-# pirateHub
-A drop box style file sharing, chat pirate hot spot web app
+# Epicenter
+A dropbox like application, with signin, a chat section, and torrent swarming between nodes.
