@@ -1,7 +1,7 @@
 import { Template } from "meteor/templating";
 import { ReactiveVar } from "meteor/reactive-var";
 import { Meteor } from "meteor/meteor";
-import { FilesCollection } from "meteor/ostrio:files";
+import { Files } from "../imports/api/Files";
 
 Template.fileUpload.onCreated(function() {
   this.currentUpload = new ReactiveVar(false);
@@ -18,7 +18,7 @@ Template.fileUpload.events({
     if (event.currentTarget.files && event.currentTarget.files[0]) {
       // We upload only one file, in case
       // multiple files were selected
-      const upload = Images.insert(
+      const upload = Files.insert(
         {
           file: event.currentTarget.files[0],
           streams: "dynamic",
@@ -68,7 +68,7 @@ Template.fileUpload.events({
             fileObj,
             (error, result) => {
               if (error) console.log(error);
-              else console.log(result);
+              else console.log(`makeTorrentFromUploadFileCall: ${result}`);
             }
           );
         }
@@ -81,10 +81,4 @@ Template.fileUpload.events({
   "mouseenter #uploadBoxArea2": (event, templateInstance) => {
     console.log("mousehover", event);
   }
-});
-
-const Images = new FilesCollection({
-  collectionName: "Files",
-  allowClientCode: false, // Disallow remove files from Client
-  storagePath: "../../../../../public/Files"
 });
