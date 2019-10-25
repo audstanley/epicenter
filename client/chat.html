@@ -14,18 +14,14 @@
     <div class="messages-box">
       <div class="messages-scroll">
         <div class="header">
-          <h1>Welcome to Pirate Hub Chat!</h1>
+          <h1>Welcome to Epicenter Chat!</h1>
         </div>
         <div class="messages">
-          {{#if Template.subscriptionsReady}}
-            {{#each messages}}
-              <p>{{message}}</p>
-            {{else}}
-              <div>Be the first to write a message!</div>
-            {{/each}}
-          {{else}}
-            <!-- {{> loader}} -->
-          {{/if}}
+          {{#with allMessages}}
+          {{#each allMessages}}
+          <p>{{message}}</p>
+          {{/each}}
+          {{/with}}
         </div>
       </div>
     </div>
@@ -35,4 +31,6 @@
         <input type="text" class="message-input" placeholder="Type your message here..."><button type="submit">Send</button>
       </form>
     </div>
-</template>
+    
+
+  </template>

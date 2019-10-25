@@ -7,53 +7,59 @@ import './main.html';
 //import './message.js';
 //import './loader.html';
 
-// Template.chat.onCreated(function bodyOnCreated() {
-  
-//   this.messagesSub = this.subscribe("messages"); //get messages
-  
-// });
-
-// Template.chat.onRendered(function bodyOnRendered() {
-  
-//   const $messagesScroll = this.$('.messages-scroll');
-  
-//   //this is used to auto-scroll to new messages whenever they come in
-  
-//   let initialized = false;
-  
-//   this.autorun(() => {
-//     if (this.messagesSub.ready()) {
-//       Messages.find({}, { fields: { _id: 1 } }).fetch();
-//       Tracker.afterFlush(() => {
-//         //only auto-scroll if near the bottom already
-//         if (!initialized || Math.abs($messagesScroll[0].scrollHeight - $messagesScroll.scrollTop() - $messagesScroll.outerHeight()) < 200) {
-//           initialized = true;
-//           $messagesScroll.stop().animate({
-//             scrollTop: $messagesScroll[0].scrollHeight
-//           });
-//         }
-//       });
-//     }
-//   });
-  
-// });
-
 Template.chat.helpers({
-  
-  messages() {
-    return Messages.find({}); //most recent at the bottom
+  allMessages() {
+    let arrFromDb = Messages.find().fetch()
+    let allMesagesFromDataBase = arrFromDb.reverse();
     
-  },
+    // let allMessagesWithPlus = allMesagesFromDataBase.map(function(messageObj) {
+    //   return { message: "<strong>" + messageObj.message + "</strong>"};
+    // } )
+    
+    let allMessagesSpliced = allMesagesFromDataBase.splice(0,10).reverse();
+    //window.scrollTo(0,document.querySelector(".messages").scrollHeight);
+    console.log(allMessagesSpliced)
+
+    return allMessagesSpliced;
+  }
+})
+
+
+
+
+
+Template.chat.onRendered(function bodyOnRendered() {
   
-  // hideHint() {
-  //   return (Cookie.get("hideHint")=="true"); //convert from string to boolean
-  // }
+  const $messagesScroll = this.$('.messages-scroll');
+  
+  //this is used to auto-scroll to new messages whenever they come in
+  
+  let initialized = false;
+  console.log('First part of onRendered ran.');
+  
+  // this.autorun(() => {
+  //   if (this.messagesSub.ready()) {
+  //     Messages.find({}, { fields: { _id: 1 } }).fetch();
+  //     Tracker.afterFlush(() => {
+  //       //only auto-scroll if near the bottom already
+  //       if (!initialized || Math.abs($messagesScroll[0].scrollHeight - $messagesScroll.scrollTop() - $messagesScroll.outerHeight()) < 200) {
+  //         initialized = true;
+  //         $messagesScroll.stop().animate({
+  //           scrollTop: $messagesScroll[0].scrollHeight
+  //         });
+  //       }
+  //     });
+  //   }
+  // });
   
 });
 
+console.log('All onRendered ran.');
+
+
 Template.chat.events({
   
-  //send message
+//   send message
 
 
   'submit form'(event, instance) {
@@ -62,42 +68,10 @@ Template.chat.events({
     
     const $el = $(event.currentTarget);
     const $input = $el.find('.message-input');
-    const data = { message: $input.val(), createdAt: new Date() };
+    const data = { message: $input.val(),};
     console.log(data);
     Messages.insert(data);
-    // console.log(`event: ${JSON.stringify(event,null,4)}`);
-    // console.log(`instance: ${JSON.stringify(instance,null,4)}`);
 
-    
-    // Meteor.call("printEvents", event, (error, response) => {
-    //   if(error) console.log(error)
-    //   else console.log(response);
-    // })
-
-    // const userName = Cookie.get("name");
-    
-    // if (userName) {
-    //   data.name = userName;
-    // }
-    
-    // Meteor.call("sendMessage", data, (error, response) => {
-    //   if (error) {
-    //     alert(error.reason);
-    //   } else {
-    //     // Cookie.set("name", response.name);
-    //     $input.val("");
-    //   }
-    // });
-    
-  },
-  
-  //hide hint in the top right corner
-  
-  // 'click .hide-hint-button'(event, instance) {
-    
-  //   //cookies only understand strings
-  //   Cookie.set("hideHint", (Cookie.get("hideHint")=="true") ? "false" : "true");
-    
-  // }
-  
-});
+   }
+   
+  });
