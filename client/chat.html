@@ -1,6 +1,36 @@
 <!-- Gregory Pierot -->
 
 <template name="chat">
-    {{> navbar }}
-    <!-- do work and your divs here -->
-</template>
+  {{> navbar }}
+  <!-- do work and your divs here -->
+  <!-- <div class="hint-box-container {{#if hideHint}}hidden{{/if}}">
+      <div class="hide-hint-button"></div>
+      <div class="hint-box">
+        <h2>Hint</h2>
+        <div>You can send messages anonymously or tell us your name. To set your name, just send a message saying "My name is _____" and we'll introduce you!</div>
+      </div>
+    </div> -->
+    
+    <div class="messages-box">
+      <div class="messages-scroll">
+        <div class="header">
+          <h1>Welcome to Epicenter Chat!</h1>
+        </div>
+        <div class="messages">
+          {{#with allMessages}}
+          {{#each allMessages}}
+          <p>{{message}}</p>
+          {{/each}}
+          {{/with}}
+        </div>
+      </div>
+    </div>
+    
+    <div class="new-message-container">
+      <form>
+        <input type="text" class="message-input" placeholder="Type your message here..."><button type="submit">Send</button>
+      </form>
+    </div>
+    
+
+  </template>

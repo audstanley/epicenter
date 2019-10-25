@@ -1,6 +1,8 @@
-import { Meteor } from "meteor/meteor";
-import { Template } from "meteor/templating";
-import "../imports/api/tasks.js";
+
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import '../imports/api/tasks.js';
+import './chat';
 import "./fileUpload.js";
 
 const fs = require("fs");
