@@ -15,7 +15,7 @@ h3 {
 }
 
 .welcome {
-    padding-bottom: 0px;/* 15px;*/
+    padding-bottom: 0px;
 }
 
 .window {
@@ -31,7 +31,6 @@ h3 {
     border: 2px solid rgb(0, 0, 0);
     top: 9rem;
     margin-left: 1.55rem;
-    /*background-color: rgba(0, 0, 0, 0.2);*/
 }
 
 .upload-window {
@@ -41,14 +40,12 @@ h3 {
     height: 75%;
     border: 2px solid rgb(0, 0, 0);
     top: 9rem;
-    margin-right: 1.55rem;
-    /*background-color: rgba(0, 0, 0, 0.2);*/
-    
+    margin-right: 1.55rem;    
 }
 
 .footer {
     position: relative;
-    top: 47rem;
+    top: 48rem;
     width: 102%;
     height: 50px;
     left: -27px;
