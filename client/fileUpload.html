@@ -1,9 +1,10 @@
 <!-- Richard Stanley -->
 <template name="fileUpload">
+  {{> mainTitle}}
   {{> navbar }}
-  {{> loginButtons }}
   <!-- do work and your divs here -->
   {{#if currentUser}}
+
   <div class="uploadFeedback" id="uploadFeedback"><p>&nbsp;</p></div>
   <div class="uploadBoxArea" id="uploadBoxArea2">
     <!-- {{#with currentUpload}} -->
@@ -17,5 +18,12 @@
 
     <!-- {{/with}} -->
   </div>
+  {{else}}
+  {{> notLoggedIn}}
+
   {{/if}}
+</template>
+
+<template name="notLoggedIn">
+  <div id="not-logged-in"><h2>Please Login.</h2></div>
 </template>

@@ -2,6 +2,7 @@
 
 .uploadBoxArea {
   margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 .inputfile {
@@ -47,4 +48,26 @@
 .uploadFeedback p {
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
+}
+
+#not-logged-in {
+  color: rgb(95, 0, 0);
+  margin-top: 2rem;
+  margin-left: 5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    text-shadow: rgba(0, 0, 0, 0.6);
+    transform: translatey(0rem);
+  }
+  50% {
+    text-shadow: rgba(0, 0, 0, 0.2);
+    transform: translatey(-0.5rem);
+  }
+  100% {
+    text-shadow: rgba(0, 0, 0, 0.6);
+    transform: translatey(0rem);
+  }
 }

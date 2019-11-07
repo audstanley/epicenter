@@ -1,138 +1,142 @@
 /* Gregory Pierot */
 * {
-	box-sizing: border-box;
-}
-
-html {
-	height: 100%;
-	overflow: hidden;
-}
-
-body {
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	font-family: 'Arial', sans-serif;
-	font-size: 14px;
-	color: #444444;
-	text-align: left;
-	line-height: 1.5;
+  box-sizing: border-box;
 }
 
 input {
   display: inline-block;
-  width: 400px;
-	margin: 0px;
-	padding: 10px;
-	background-color: rgba(255, 255, 255, 0.8);
-	border: 1px solid #C2C8D9;
-	color: #444444;
-	border-radius: 3px;
-	font-size: 14px;
-	font-family: 'Arial', sans-serif;
-	outline: none;
-	transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #c2c8d9;
+  color: #444444;
+  border-radius: 0.3rem;
+  margin-left: 2rem;
+  font-size: 1rem;
+  font-family: "Arial", sans-serif;
+  outline: none;
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
 }
 
 input:hover {
-	background-color: white;
-	border-color: #999fb1;
+  background-color: white;
+  border-color: #999fb1;
 }
 
 input:focus {
-	background-color: white;
-	border-color: #2a2e3c;
+  background-color: white;
+  border-color: #2a2e3c;
 }
 
 button {
   display: inline-block;
-	margin: 0px;
-	padding: 10px 20px;
-	background-color: #6D6DD0;
-	border: 1px solid #6D6DD0;
-	color: white;
-	border-radius: 4px;
-	font-size: 12px;
-	font-family: 'Arial', sans-serif;
-	font-weight: bold;
-	outline: none;
-	cursor: pointer;
-	cursor: hand;
-	transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+  margin: 0px;
+  padding: 0.5rem;
+  background-color: #6d6dd0;
+  border: 1px solid #6d6dd0;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  cursor: hand;
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
 }
 
-button:hover, button:focus {
-	background-color: #5757B2;
-	border-color: #5757B2;
-	color: white;
-	box-shadow: 0px 10px 30px 0px rgba(87, 87, 179, 0.3);
+button:hover,
+button:focus {
+  background-color: #5757b2;
+  border-color: #5757b2;
+  color: white;
+  box-shadow: 0px 10px 30px 0px rgba(87, 87, 179, 0.3);
 }
 
 /* selections made by the user dragging along text */
 
 ::selection {
-	background: #ffb7b7; /* WebKit/Blink Browsers */
+  background: #ffb7b7; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-	background: #ffb7b7; /* Gecko Browsers */
+  background: #ffb7b7; /* Gecko Browsers */
 }
 
 /* input placeholder color */
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	color:    #999fb1;
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #999fb1;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	color:    #999fb1;
-	opacity:  1;
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999fb1;
+  opacity: 1;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-	color:    #999fb1;
-	opacity:  1;
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999fb1;
+  opacity: 1;
 }
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color:    #999fb1;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999fb1;
 }
-::-ms-input-placeholder { /* Microsoft Edge */
-	color:    #999fb1;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999fb1;
 }
 
 /* loading spinner animation that can be applied to SVG spinner (uses GPU which makes animation as smooth as possible) */
 
 @-ms-keyframes spin {
-    from { -ms-transform: rotate(0deg); }
-    to { -ms-transform: rotate(360deg); }
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
 }
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @keyframes spin {
-    from { transform:rotate(0deg); }
-    to { transform:rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loader {
-	-webkit-animation-name: spin;
-	-webkit-animation-duration: 400ms;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	-moz-animation-name: spin;
-	-moz-animation-duration: 400ms;
-	-moz-animation-iteration-count: infinite;
-	-moz-animation-timing-function: linear;
-	-ms-animation-name: spin;
-	-ms-animation-duration: 400ms;
-	-ms-animation-iteration-count: infinite;
-	-ms-animation-timing-function: linear;
-	animation-name: spin;
-	animation-duration: 400ms;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 400ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 400ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 400ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .hint-box-container {
@@ -141,7 +145,7 @@ button:hover, button:focus {
   right: 50px;
   z-index: 5;
   opacity: 0.7;
-  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
 }
 
 .hint-box-container:hover {
@@ -158,18 +162,19 @@ button:hover, button:focus {
   background-color: #444444;
   border-radius: 50%;
   border: 5px solid white;
-  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
-	cursor: pointer;
-	cursor: hand;
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
+  cursor: pointer;
+  cursor: hand;
 }
 
-.hint-box-container .hide-hint-button:before, .hint-box-container .hide-hint-button:after {
+.hint-box-container .hide-hint-button:before,
+.hint-box-container .hide-hint-button:after {
   position: absolute;
   left: 50%;
   top: 50%;
   margin-left: -1px;
   margin-top: -6px;
-  content: ' ';
+  content: " ";
   height: 12px;
   width: 2px;
   background-color: white;
@@ -185,18 +190,16 @@ button:hover, button:focus {
   padding: 20px;
   background-color: white;
   max-width: 320px;
-  box-shadow: 0px 20px 100px 0px rgba(0,0,0,0.15);
-  transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
+  box-shadow: 0px 20px 100px 0px rgba(0, 0, 0, 0.15);
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
 }
 
 @media (max-width: 420px) {
-  
   /* in case the hint box gets squeezed out */
 
-	.hint-box-container {
-		left: 50px;
-	}
-
+  .hint-box-container {
+    left: 50px;
+  }
 }
 
 .hint-box-container .hint-box h2 {
@@ -212,7 +215,7 @@ button:hover, button:focus {
 .hint-box-container.hidden .hide-hint-button {
   width: 40px;
   height: 40px;
-  box-shadow: 0px 20px 100px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 20px 100px 0px rgba(0, 0, 0, 0.4);
 }
 
 .hint-box-container.hidden .hide-hint-button:after {
@@ -223,36 +226,37 @@ button:hover, button:focus {
   position: absolute;
   left: 50%;
   top: 50%;
-  content: '';
+  content: "";
   height: 14px;
   width: 14px;
   margin-top: -7px;
   margin-left: -7px;
   transform: rotate(0deg);
   background-color: transparent;
-  background-image: url('/question-white.svg');
+  background-image: url("/question-white.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .messages-box {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 80px;
-  overflow: none;
+  margin-bottom: 3.8rem;
+  overflow: auto;
+  line-height: 0.5;
+}
+
+.messages {
+  margin-left: 2.25rem;
+}
+
+.message-input {
+  margin-left: 0.75rem;
+  margin-right: 0.5rem;
+  padding-left: 1rem;
 }
 
 .messages-box .messages-scroll {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  overflow: auto;
-  max-height: 100%;
-	-webkit-overflow-scrolling: touch; /* enable intertial scroll on mobile devices */
+  -webkit-overflow-scrolling: touch; /* enable intertial scroll on mobile devices */
 }
 
 .messages-box .messages-scroll .header {
@@ -271,7 +275,7 @@ button:hover, button:focus {
 
 .messages-box .messages-scroll .messages .message {
   margin-top: 15px;
-  border-top: 1px solid #EDEEF2;
+  border-top: 1px solid #edeef2;
   padding-top: 15px;
 }
 
@@ -285,7 +289,7 @@ button:hover, button:focus {
 }
 
 .messages-box .messages-scroll .messages .message .timestamp {
-  color: #95979C;
+  color: #95979c;
   font-weight: normal;
   margin-left: 5px;
   font-size: 12px;
@@ -303,8 +307,8 @@ button:hover, button:focus {
   right: 0px;
   bottom: 0px;
   height: 80px;
-  border-top: 1px solid #EDEEF2;
-  background-color: #FAFBFF;
+  border-top: 1px solid #edeef2;
+  background-color: #fafbff;
   padding: 20px;
 }
 

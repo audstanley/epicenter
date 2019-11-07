@@ -1,4 +1,70 @@
 body {
-  padding: 10px;
-  font-family: sans-serif;
+  font-family: "Passion One", cursive;
+  background-color: rgb(245, 245, 245);
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+h1 {
+  margin-top: 0.5rem;
+}
+
+#web-title {
+  font-size: 4em;
+  font-weight: 900;
+  color: rgb(242, 242, 242);
+  margin-left: 3rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 1px #a8a8a8, 1px 2px 1px #a8a8a8, 1px 3px 1px #a8a8a8,
+    1px 4px 1px #a8a8a8, 1px 5px 1px #a8a8a8, 1px 6px 1px #a8a8a8,
+    1px 7px 1px #a8a8a8, 1px 8px 1px #a8a8a8, 1px 9px 1px #a8a8a8,
+    1px 10px 1px #a8a8a8, 1px 18px 6px rgba(16, 16, 16, 0.2),
+    1px 22px 10px rgba(16, 16, 16, 0.05), 1px 25px 35px rgba(16, 16, 16, 0.05),
+    1px 30px 60px rgba(16, 16, 16, 0.05);
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 715px) {
+  #web-title {
+    margin-left: 3.2rem;
+    font-size: 2em;
+  }
+}
+
+#web-title:hover {
+  color: rgb(230, 230, 230);
+  text-shadow: 1px 1px 1px #7e7e7e, 1px 2px 1px #7e7e7e, 1px 3px 1px #7e7e7e,
+    1px 4px 1px #7e7e7e, 1px 5px 1px #7e7e7e, 1px 6px 1px #7e7e7e,
+    1px 7px 1px #7e7e7e, 1px 8px 1px #7e7e7e, 1px 9px 1px #7e7e7e,
+    1px 10px 1px #7e7e7e, 1px 18px 6px rgba(16, 16, 16, 0.4),
+    1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
+    1px 30px 60px rgba(16, 16, 16, 0.2);
+}
+
+#img {
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+
+#info-of-site {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+}
+
+#info-of-site a {
+  color: blue;
+}
+
+h4 {
+  font-family: "Passion One", cursive;
+  font-weight: 500;
+  text-align: justify;
+  text-justify: inter-word;
 }
