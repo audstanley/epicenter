@@ -21,4 +21,3 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 insecure
 kadira:blaze-layout
 ostrio:flow-router-extra
-ostrio:files

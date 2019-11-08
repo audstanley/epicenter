@@ -1,4 +1,17 @@
 // Sami Aliraqi
+
+// import { Files } from "../imports/api/Files"
+// import { Template }    from 'meteor/templating';
+// Template.navbar.helpers({
+// 	 newFiles() {
+// 	   return Files.find().fetch();
+// 	 }
+//  });
+
+
+
+
+
 class StickyNavigation {
 	
 	constructor() {
