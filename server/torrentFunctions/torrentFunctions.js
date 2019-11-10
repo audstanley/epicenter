@@ -4,8 +4,6 @@ const Transmission = require("transmission");
 const transmission = new Transmission({
   host: "localhost", // default 'localhost'
   port: 9091, // default 9091
-  username: "audstanley", // default blank
-  password: "password", // default blank
   ssl: false, // default false use https
   url: "/transmission/rpc" // default '/transmission/rpc'
 });
