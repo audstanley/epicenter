@@ -1,6 +1,45 @@
-<!-- Erik -->
+<!-- Erik fileSearch.html -->
+
 <template name="fileSearch">
-  {{> mainTitle}}
-  {{> navbar }}
-  <!-- do work and your divs here -->
+    {{> navbar }}
+    <!-- do work and your divs here -->
+
+
+    <div class="dTable">
+        <table id="dItems">
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Uploader</th>
+                <th>Size</th>
+            </tr>
+            {{#with allFiles }}
+            {{#each allFiles }}    
+            <tr>
+                <td>{{ fDate }}</td>
+                <td><a href="/Files/{{ _id }}{{ extensionWithDot }}" download="{{ name }}{{ extensionWithDot }}">{{ name }}</a></td>
+                <td>{{ fUser }}</td> 
+                <td>{{ fSize }}</td>
+            </tr>
+            {{/each}}
+            {{/with}}       
+        </table>
+    </div>
+
 </template>
+
+<!-- meteor:PRIMARY> db.Files.find().pretty()
+{
+        "_id" : "6nMNp2zSniPB2KoLA",
+        "size" : 2729,
+        "type" : "text/plain",
+        "name" : "go rpoject.txt",
+        "meta" : {
+        "isAudio" : false,
+        "isImage" : false,
+        "isText" : true,
+        "isJSON" : false,
+        "isPDF" : false,
+        "_storagePath" : "../../../../../public/Files",
+        "public" : false
+} -->
