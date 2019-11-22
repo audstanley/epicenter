@@ -9,10 +9,14 @@
       <div class="header">
         <h1>Welcome to Epicenter Chat!</h1>
       </div>
+
+
       <div class="messages">
         {{#with allMessages}}
         {{#each allMessages}}
-        <p>{{ message }}</p>
+       
+          <tr><div class="emailAdress"> {{ email }}: </div>
+          <div class="displayMessage"> {{ message }} </div></tr>
         {{/each}}
         {{/with}}
       </div>
