@@ -4,32 +4,49 @@ import { ReactiveVar } from "meteor/reactive-var";
 import { Files } from "../imports/api/Files";
 import { createDeflate } from "zlib";
 import { parse } from "url";
+import { Session } from 'meteor/session'
+import { formatBytes } from "../imports/api/eriksFunctions"
 
 Template.fileSearch.helpers({
   allFiles() {
+    // var = global and let = local
 
-    let allFilesFromMongo = Files.find().fetch();
-    let allFilesFromMongoReversed = allFilesFromMongo.reverse();
-    let allFilesWithSizeString = allFilesFromMongoReversed.map(fileObj => {
-      return Object.assign(fileObj, {
+    var allFilesFromMongo = Files.find().fetch();
+    var allFilesFromMongoReversed = allFilesFromMongo.reverse();
+    var allFilesWithSizeString = 
+    allFilesFromMongoReversed.map(fileObj => {
+      return Object.assign(fileObj, { 
         fDate: fileObj.meta.created_at,
-        fUser: Meteor.user().emails[0].address,
-        fSize: formatBytes(fileObj.size) 
+        //fUser: Meteor.user().emails.address[0],
+        fUser: findUsers(fileObj.userId),
+        fSize: formatBytes(fileObj.size),
+        fName: fileObj.name,
       });
     });
     console.log(allFilesWithSizeString);
     return allFilesWithSizeString;
-    
-    // doesn't work outside allFiles()
-    function formatBytes(bytes){
-      if (bytes < 1024) 
-        return bytes + " bytes";
-      else if (bytes < 1048576)
-        return (bytes / 1024).toFixed(3) + " KB";
-      else if (bytes < 1073741824)
-        return (bytes / 1048576).toFixed(3) + " MB";
+
+    /*
+    db.Files.find().pretty()
+    "_id" : "QXcrq6dnQzJLN9gMk",
+    "userId" : "AMtKtJKCrhYp9C5iH",
+
+    db.users.find().pretty()
+    "_id" : "FNbYxMNvGZMktffhK",
+    "_id" : "AMtKtJKCrhYp9C5iH",
+    */
+    function findUsers(tUser){
+      //let d = Meteor.user().emails[0].address;
+      //let uID = Meteor.users.userId;
+      //Meteor.user().emails[0].address;
+      return Meteor.users.findOne(userId)
+      return Meteor.users.findOne(this.tUser)
+
+      // if user ID's match
+      if (fID == uID)
+        return fUser;
       else
-        return (bytes / 1073741824).toFixed(3) + " GB";
+        return "N/A";
     };
-  },  
+  },
 });

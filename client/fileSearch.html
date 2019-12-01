@@ -3,19 +3,18 @@
 <template name="fileSearch">
     {{> navbar }}
     <!-- do work and your divs here -->
-
-
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
     <div class="dTable">
         <table id="dItems">
             <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Uploader</th>
-                <th>Size</th>
+                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(1)')">Date</th>
+                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(2)')">Name</th>
+                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(3)')">Uploader</th>
+                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(4)')">Size</th>
             </tr>
             {{#with allFiles }}
             {{#each allFiles }}    
-            <tr>
+            <tr class="item">
                 <td>{{ fDate }}</td>
                 <td><a href="/Files/{{ _id }}{{ extensionWithDot }}" download="{{ name }}{{ extensionWithDot }}">{{ name }}</a></td>
                 <td>{{ fUser }}</td> 
@@ -26,7 +25,7 @@
         </table>
     </div>
 
-</template>
+    </template>
 
 <!-- meteor:PRIMARY> db.Files.find().pretty()
 {
