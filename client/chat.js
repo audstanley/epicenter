@@ -29,11 +29,13 @@ Template.chat.events({
     if (userId) {
       const $el = $(event.currentTarget);
       const $input = $el.find(".message-input");
-      const data = { message: $input.val(), userId: Meteor.userId(), email: Meteor.user().emails[0].address };
+      const data = { 
+        message: $input.val(), 
+        userId: Meteor.userId(), 
+        email: Meteor.user().emails[0].address, 
+        color: charToColor(Meteor.userId()) 
+      };
       console.log(data);
-
-      const firstChar = (Meteor.userId().charAt(0));
-      
 
       Messages.insert(data);
       document.querySelector(".message-input").value = "";
@@ -45,4 +47,37 @@ Template.chat.events({
   }
 });
 
+const charToColor = (uid) => {
+  const letterNumber = uid.charCodeAt(0)
+  if (letterNumber >= 60 && letterNumber <= 70)
+      {
+        return 'rgb(239, 83, 80)';
+        // red
+      }
+     else if (letterNumber >= 71 && letterNumber <= 80)
+      {
+        return 'rgb(178, 235, 242)';
+        // blue
+      }
+     else if (letterNumber >= 81 && letterNumber <= 90)
+      {
+        return 'rgb(156, 204, 101)';
+        // green
+      }
+     else if (letterNumber >= 97 && letterNumber <= 107)
+      {
+        return 'rgb(255, 238, 88)';
+        // yellow
+      }
+     else if (letterNumber >= 108 && letterNumber <= 118)
+      {
+        return 'rgb(225, 190, 231)';
+        // purple
+      }
+     else if (letterNumber >= 119 && letterNumber <= 122)
+      {
+        return 'rgb(255, 102, 0)';
+        // orange
+      }
+}
 
