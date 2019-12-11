@@ -3,8 +3,36 @@
 <template name="fileSearch">
     {{> navbar }}
     <!-- do work and your divs here -->
+
+    <!-- This is for sort HTML function -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <div class="dTable">
+        
+    <script>
+    function searchBar() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("dInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("dItems");
+        tr = table.getElementsByTagName("tr");
+      
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      };
+      </script>
+
+    <div>
+        <input id="dInput" type="text" onkeyup="searchBar()" placeholder="Search..." title="Type in a name">
         <table id="dItems">
             <tr>
                 <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(1)')">Date</th>
@@ -25,20 +53,4 @@
         </table>
     </div>
 
-    </template>
-
-<!-- meteor:PRIMARY> db.Files.find().pretty()
-{
-        "_id" : "6nMNp2zSniPB2KoLA",
-        "size" : 2729,
-        "type" : "text/plain",
-        "name" : "go rpoject.txt",
-        "meta" : {
-        "isAudio" : false,
-        "isImage" : false,
-        "isText" : true,
-        "isJSON" : false,
-        "isPDF" : false,
-        "_storagePath" : "../../../../../public/Files",
-        "public" : false
-} -->
+</template>
