@@ -27,5 +27,9 @@ import "./navbar.css";
 import "./navbar.html";
 import "./navbar.js";
 
+import "./gps.css";
+import "./gps.html";
+import "./gps.js";
+
 import "../lib/navRoutes.js";
 import "./main.html";
