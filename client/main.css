@@ -25,7 +25,7 @@ h1 {
     1px 10px 1px #a8a8a8, 1px 18px 6px rgba(16, 16, 16, 0.2),
     1px 22px 10px rgba(16, 16, 16, 0.05), 1px 25px 35px rgba(16, 16, 16, 0.05),
     1px 30px 60px rgba(16, 16, 16, 0.05);
-  transition: 0.3s;
+  transition: 0.6s;
 }
 
 @media screen and (max-width: 715px) {
