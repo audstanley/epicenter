@@ -1,2 +1,2 @@
-SET /P MONGO_URL=<.env;
-meteor;
+SET /P MONGO_URL=<.env
+meteor
