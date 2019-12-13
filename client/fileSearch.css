@@ -1,1 +1,57 @@
-/* Erik */
+/* Erik fileSearch.css */
+
+/* Search Bar continuity (Font, width, left) */
+#dInput, #dItems {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /* border-radius: 15px 15px 0px 0px; */
+    border-collapse: collapse;
+    width: 75%;
+    position: relative;
+    top: 5rem;
+    height: 100%;
+    margin: auto; 
+}
+
+/* Search Bar*/
+#dInput {
+    /* left: 8rem; */
+    left: 12.5%;
+    background-image: url('https://www.w3schools.com/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 5px; /* Add some space below the input */
+}
+
+/* Table elements */
+#dItems {
+    /* left: 10rem; */
+    margin-bottom: 10rem;
+}
+
+/* Table Header */
+#dItems th {
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align: left;
+    background: rgba(102,177,241,0.8);
+    color: white;
+    cursor: pointer;
+}
+
+#dItems td, #dItems th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+ /* Every other row is a different color */
+#dItems tr:nth-child(even){
+    background-color: rgb(206, 206, 206);
+}
+      
+/* Hover selection changes background color */
+#dItems tr:hover {
+    background-color: #ddd;
+}

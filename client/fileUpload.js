@@ -22,7 +22,11 @@ Template.fileUpload.events({
         {
           file: event.currentTarget.files[0],
           streams: "dynamic",
-          chunkSize: "dynamic"
+          chunkSize: "dynamic",
+          meta: {
+            downloads: 0,
+            created_at: new Date().toLocaleString(),   // or .toUTCString()
+          }
         },
         false
       );
