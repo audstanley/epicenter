@@ -1,16 +1,19 @@
 <!-- Richard Stanley -->
+
 <template name="fileUpload">
+  {{> mainTitle}} {{> navbar }}
   <!-- do work and your divs here -->
   {{#if currentUser}}
 
   <div class="uploadFeedback" id="uploadFeedback"><p>&nbsp;</p></div>
   <div class="uploadBoxArea" id="uploadBoxArea2">
+    <h2>Drop files here</h2>
     <!-- {{#with currentUpload}} -->
     <!-- Uploading <b>{{ file.name }}</b
       >:
       <span id="progress">{{ progress.get }}%</span> -->
     <!-- {{else}} -->
-    <h3>Drop files here</h3>
+
     <div id="fileInDropWrapper">
       <input type="file" name="file" id="fileInDrop" class="fileInDrop" />
     </div>
