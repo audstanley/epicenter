@@ -1,1 +1,73 @@
 /* Collin Campbell */
+
+body {
+    margin-left: 1rem;
+    min-height: 100%;
+    height: 100%;
+}
+
+h3 {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    font-size: 15px;
+    left: 10px;
+}
+
+.welcome {
+    padding-bottom: 0px;
+}
+
+.window {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chat-window {
+    left: 0;
+    position: absolute;
+    width: 60%;
+    height: 75%;
+    border: 2px solid rgb(0, 0, 0);
+    top: 9rem;
+    margin-left: 1.55rem;
+}
+
+.upload-window {
+    right: 0;
+    position: absolute;
+    width: 35%;
+    height: 75%;
+    border: 2px solid rgb(0, 0, 0);
+    top: 9rem;
+    margin-right: 1.55rem;    
+}
+
+.footer {
+    position: relative;
+    top: 48rem;
+    width: 102%;
+    height: 50px;
+    left: -27px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.upload-image {
+    position: absolute;
+    left: 240px;
+    top: 100px;
+}
+
+.richieFileUpload {
+    position: absolute;
+    left: 300px;
+    top: 400px;
+}
+
+.upload-text {
+    position: absolute;
+    left: 240px;
+    top: 300px;
+    font-size: 20px;
+}
