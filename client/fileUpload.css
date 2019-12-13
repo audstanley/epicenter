@@ -5,6 +5,41 @@
   margin-left: 2rem;
 }
 
+h3 {
+  margin-left: 2rem;
+}
+
+.successfulUpload {
+  margin-left: 3rem;
+}
+
+.fileInDrop {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  height: 13rem;
+  width: 31rem;
+}
+
+#fileInDrop {
+  opacity: 0;
+  z-index: -1;
+}
+#fileInDropWrapper {
+  border: black;
+  border-style: solid;
+  min-width: 245px;
+  margin-left: 2rem;
+  margin-right: 3rem;
+}
+
+/* input[type="file"] {
+  position: absolute;
+} */
+
+/* .fileInDrop[type="file"] {
+  display: none;
+} */
+
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -28,6 +63,7 @@
   cursor: pointer; /* "hand" cursor */
   transition: all 0.3s ease-in;
   text-align: center;
+  margin-left: 2rem;
 }
 
 .inputfile + label:hover {

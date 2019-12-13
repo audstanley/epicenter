@@ -1,7 +1,6 @@
 <!-- Richard Stanley -->
 <template name="fileUpload">
-  {{> mainTitle}}
-  {{> navbar }}
+  {{> mainTitle}} {{> navbar }}
   <!-- do work and your divs here -->
   {{#if currentUser}}
 
@@ -12,16 +11,20 @@
       >:
       <span id="progress">{{ progress.get }}%</span> -->
     <!-- {{else}} -->
+    <h3>Drop files here</h3>
+    <div id="fileInDropWrapper">
+      <input type="file" name="file" id="fileInDrop" class="fileInDrop" />
+    </div>
+    <p></p>
+
     <input type="file" name="file" id="fileInput" class="inputfile" />
     <label for="fileInput">Upload</label>
+
     <div id="fileUploadError"></div>
 
     <!-- {{/with}} -->
   </div>
-  {{else}}
-  {{> notLoggedIn}}
-
-  {{/if}}
+  {{else}} {{> notLoggedIn}} {{/if}}
 </template>
 
 <template name="notLoggedIn">
