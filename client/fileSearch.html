@@ -1,56 +1,73 @@
 <!-- Erik fileSearch.html -->
 
 <template name="fileSearch">
-    {{> navbar }}
-    <!-- do work and your divs here -->
+  {{> mainTitle}} {{> navbar }}
+  <!-- do work and your divs here -->
 
-    <!-- This is for sort HTML function -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-        
-    <script>
+  <!-- This is for sort HTML function -->
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+  <script>
     function searchBar() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("dInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("dItems");
-        tr = table.getElementsByTagName("tr");
-      
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("dInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("dItems");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
           }
         }
-      };
-      </script>
+      }
+    }
+  </script>
 
-    <div>
-        <input id="dInput" type="text" onkeyup="searchBar()" placeholder="Search..." title="Type in a name">
-        <table id="dItems">
-            <tr>
-                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(1)')">Date</th>
-                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(2)')">Name</th>
-                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(3)')">Uploader</th>
-                <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(4)')">Size</th>
-            </tr>
-            {{#with allFiles }}
-            {{#each allFiles }}    
-            <tr class="item">
-                <td>{{ fDate }}</td>
-                <td><a href="/Files/{{ _id }}{{ extensionWithDot }}" download="{{ name }}{{ extensionWithDot }}">{{ name }}</a></td>
-                <td>{{ fUser }}</td> 
-                <td>{{ fSize }}</td>
-            </tr>
-            {{/each}}
-            {{/with}}       
-        </table>
-    </div>
-
+  <div>
+    <input
+      id="dInput"
+      type="text"
+      onkeyup="searchBar()"
+      placeholder="Search..."
+      title="Type in a name"
+    />
+    <table id="dItems">
+      <tr>
+        <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(1)')">
+          Date
+        </th>
+        <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(2)')">
+          Name
+        </th>
+        <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(3)')">
+          Uploader
+        </th>
+        <th button onclick="w3.sortHTML('#dItems', '.item', 'td:nth-child(4)')">
+          Size
+        </th>
+      </tr>
+      {{#with allFiles }} {{#each allFiles }}
+      <tr class="item">
+        <td>{{ fDate }}</td>
+        <td>
+          <a
+            href="/Files/{{ _id }}{{ extensionWithDot }}"
+            download="{{ name }}{{ extensionWithDot }}"
+            >{{ name }}</a
+          >
+        </td>
+        <td>{{ fUser }}</td>
+        <td>{{ fSize }}</td>
+      </tr>
+      {{/each}} {{/with}}
+    </table>
+  </div>
 </template>
