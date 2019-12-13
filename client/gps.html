@@ -1,0 +1,18 @@
+<template name="geolocate">
+    {{#if currentUser}}
+    <div id="location"></div>
+    <link rel="stylesheet" href="gps.css">
+    <script>
+        if(navigator.geolocation)
+            navigator.geolocation.getCurrentPosition(function(position){
+                document.getElementById("location").innerHTML = "Location: Fullerton, California";
+            }, function() {
+                document.getElementById("location").innerHTML = "";
+            });
+        else
+            console.log("Geolocation is not supported");
+    </script>
+    {{else}}
+    {{> notLoggedIn}}
+    {{/if}}
+</template>

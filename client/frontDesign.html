@@ -1,6 +1,29 @@
 <!-- Collin Campbell -->
 
 <template name="frontDesign">
-    {{> navbar }}
-    <!-- do work and your divs here -->
+  {{> mainTitle}} {{> navbar }}
+  <!-- do work and your divs here -->
+  <!-- <script src="frontDesign.js"></script> -->
+  <link rel="stylesheet" href="frontDesign.css" />
+  <title>Epicenter</title>
+  <h1 class="welcome">Welcome to Epicenter</h1>
+  <body>
+    <div class="window">
+      <div class="chat-window">
+        {{> chat }}
+      </div>
+      <div class="upload-window">
+        <div class="upload-image">
+          <img src="/Files/upload.jpg" width="200" height="200" />
+        </div>
+        <div class="upload-text">Drag & Drop files here</div>
+        <div class="richieFileUpload">
+          {{> fileUpload }}
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <h3>Epicenter created by: Richie, Gregory, Erik, Sami, Collin</h3>
+    </div>
+  </body>
 </template>

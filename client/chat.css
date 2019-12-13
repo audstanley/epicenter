@@ -1,1 +1,274 @@
 /* Gregory Pierot */
+* {
+  box-sizing: border-box;
+}
+
+input {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #c2c8d9;
+  color: #444444;
+  border-radius: 0.3rem;
+  margin-left: 2rem;
+  font-size: 1rem;
+  font-family: "Arial", sans-serif;
+  outline: none;
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
+}
+
+input:hover {
+  background-color: white;
+  border-color: #999fb1;
+}
+
+input:focus {
+  background-color: white;
+  border-color: #2a2e3c;
+}
+
+button {
+  display: inline-block;
+  margin: 0px;
+  padding: 0.5rem;
+  background-color: #6d6dd0;
+  border: 1px solid #6d6dd0;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  cursor: hand;
+  transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1); /* easeOutQuart */
+}
+
+button:hover,
+button:focus {
+  background-color: #5757b2;
+  border-color: #5757b2;
+  color: white;
+  box-shadow: 0px 10px 30px 0px rgba(87, 87, 179, 0.3);
+}
+
+/* selections made by the user dragging along text */
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
+/* input placeholder color */
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #999fb1;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999fb1;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999fb1;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999fb1;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #999fb1;
+}
+
+/* loading spinner animation that can be applied to SVG spinner (uses GPU which makes animation as smooth as possible) */
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 400ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 400ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 400ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@media (max-width: 420px) {
+  /* in case the hint box gets squeezed out */
+
+  .hint-box-container {
+    left: 50px;
+  }
+}
+
+.messages-box {
+  margin-bottom: 6rem;
+  overflow: auto;
+  line-height: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.messages {
+  margin-left: 2.25rem;
+  grid-column: 2 / 4;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 5rem;
+  justify-content: space-evenly;
+  justify-content: start;
+}
+
+.emailAdress,
+.displayMessage {
+  display: inline;
+}
+.emailAdress {
+  box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  margin-top: 1.5rem;
+}
+
+.displayMessage {
+  /* box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); */
+  width: auto;
+  height: 2.4rem;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  text-align: left;
+  font-weight: 300;
+  /* background: #a2e0dd; */
+  color: rgb(0, 0, 0);
+  font-family: arial;
+  border-radius: 0.1rem;
+  margin-top: 1.5rem;
+}
+
+.message-input {
+  margin-left: 0.75rem;
+  margin-right: 0.5rem;
+  padding-left: 1rem;
+}
+
+.messages-box .messages-scroll {
+  -webkit-overflow-scrolling: touch; /* enable intertial scroll on mobile devices */
+}
+
+.messages-box .messages-scroll .header {
+  margin: 20px;
+}
+
+.messages-box .messages-scroll .header h1 {
+  font-size: 25px;
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+}
+
+.messages-box .messages-scroll .messages {
+  padding: 20px;
+}
+
+.messages-box .messages-scroll .messages .message {
+  margin-top: 15px;
+  border-top: 1px solid #edeef2;
+  padding-top: 15px;
+}
+
+.messages-box .messages-scroll .messages .message .name {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.messages-box .messages-scroll .messages .message.announcement .name {
+  color: #ff5722;
+}
+
+.messages-box .messages-scroll .messages .message .timestamp {
+  color: #95979c;
+  font-weight: normal;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.messages-box .messages-scroll .messages .message.announcement .emoji {
+  height: 25px;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+.new-message-container {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 80px;
+  border-top: 1px solid #edeef2;
+  background-color: #fafbff;
+  padding: 20px;
+}
+
+.new-message-container form {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-message-container form input {
+  flex: 1;
+}
+
+.new-message-container form button {
+  margin-left: 10px;
+}
