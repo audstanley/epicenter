@@ -1,6 +1,34 @@
 <!-- Gregory Pierot -->
 
 <template name="chat">
-    {{> navbar }}
-    <!-- do work and your divs here -->
+  {{> mainTitle}}
+  {{> navbar }}
+  {{#if currentUser}}
+  <div class="messages-box">
+    <div class="messages-scroll">
+      <div class="header">
+        <h1>Welcome to Epicenter Chat!</h1>
+      </div>
+      <div class="messages">
+        {{#with allMessages}}
+        {{#each allMessages}}
+        <p>{{ message }}</p>
+        {{/each}}
+        {{/with}}
+      </div>
+    </div>
+  </div>
+
+  <div class="new-message-container">
+    <form>
+      <input
+        type="text"
+        class="message-input"
+        placeholder="Type your message here..."
+      /><button type="submit">Send</button>
+    </form>
+  </div>
+  {{else}}
+  {{> notLoggedIn}}
+  {{/if}}
 </template>

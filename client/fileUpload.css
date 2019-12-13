@@ -1,1 +1,109 @@
 /* Richard Stanley */
+
+.uploadBoxArea {
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+h3 {
+  margin-left: 2rem;
+}
+
+.successfulUpload {
+  margin-left: 3rem;
+}
+
+.fileInDrop {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  height: 13rem;
+  width: 31rem;
+}
+
+#fileInDrop {
+  opacity: 0;
+  z-index: -1;
+}
+#fileInDropWrapper {
+  border: black;
+  border-style: solid;
+  min-width: 245px;
+  margin-left: 2rem;
+  margin-right: 3rem;
+}
+
+/* input[type="file"] {
+  position: absolute;
+} */
+
+/* .fileInDrop[type="file"] {
+  display: none;
+} */
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: lightblue;
+  display: inline-block;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer; /* "hand" cursor */
+  transition: all 0.3s ease-in;
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.inputfile + label:hover {
+  background-color: rgb(68, 96, 253);
+  box-shadow: 0.2rem 0.2rem 0.2rem rgb(184, 184, 184);
+  transform: scale(1.1);
+}
+
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.uploadFeedback {
+  margin-top: 1rem;
+}
+
+.uploadFeedback p {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+#not-logged-in {
+  color: rgb(95, 0, 0);
+  margin-top: 2rem;
+  margin-left: 5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    text-shadow: rgba(0, 0, 0, 0.6);
+    transform: translatey(0rem);
+  }
+  50% {
+    text-shadow: rgba(0, 0, 0, 0.2);
+    transform: translatey(-0.5rem);
+  }
+  100% {
+    text-shadow: rgba(0, 0, 0, 0.6);
+    transform: translatey(0rem);
+  }
+}

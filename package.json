@@ -1,5 +1,5 @@
 {
-  "name": "pirateHub",
+  "name": "epicenter",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -9,9 +9,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "bcrypt": "^3.0.6",
+    "create-torrent": "^4.4.1",
     "express": "^4.17.1",
     "meteor-node-stubs": "^0.4.1",
-    "node-fetch": "^2.6.0"
+    "mongodb": "^3.3.4",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.18.2",
+    "transmission": "^0.4.9"
   },
   "meteor": {
     "mainModule": {
@@ -19,5 +24,12 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-meteor": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "mocha": "^6.2.1"
   }
 }

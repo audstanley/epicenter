@@ -1,13 +1,16 @@
 <!-- Sami Aliraqi -->
 
 <template name="navbar">
-    <!-- do work and your divs here -->
-    <div class="navbar-class">
-        <a class="active" href="/">main</a>
-        <a class="active" href="/chat">Chat</a>
-        <a class="active" href="/fileSearch">FileSearch</a>
-        <a class="active" href="/fileUpload">FileUpload</a>
-        <a class="active" href="/frontDesign">frontUpload</a>
-        <a class="active" href="/navbar">Navbar</a>
-      </div>
+  <!-- do work and your divs here -->
+  <div class="navbar-class">
+    <!-- <a class="topnav" href="/">main</a> -->
+    <a class="topnav" href="/chat">Chat</a>
+    <a class="topnav" href="/fileSearch">Search</a>
+    <a class="topnav" href="/fileUpload">Upload</a>
+    <!-- <a class="topnav" href="/frontDesign">frontDesign</a>
+    <a class="topnav" href="/navbar">Navbar</a> -->
+  </div>
+  <div class="aftertopnav">
+    {{> loginButtons }}
+  </div>
 </template>

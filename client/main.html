@@ -1,4 +1,30 @@
 <template name="mainTemplate">
-    {{> navbar }}
-    {{> frontDesign }}
+  {{> mainTitle}}
+  {{> navbar }}
+  <img src="/assets/epicenter.svg" id="img" />
+  {{> info}}
+</template>
+
+<template name="mainTitle">
+  <div id="web-title">
+    <h1><a href="/">Epicenter</a></h1>
+  </div>
+</template>
+
+<template name="info">
+  <div id="info-of-site">
+    <h4>
+      Epicenter is website where you can upload files that will be spread across
+      other nodes connected to a mongo database. If you want to have files that
+      are shared to other locations running an Epicenter application, you just
+      need to connect to a shared MongoDB. On the backend, epicenter will create
+      a swarm of data between all epicenter nodes by turning the uploaded file
+      into a torrent, the torrent gets sent to MongoDb, and the other nodes
+      begin add the torrent to a running instance of
+      <a href="https://transmissionbt.com/download/">Transmission</a>.
+      Currently, epicenter is supported on Windows, and Linux. Documentation for
+      this project can be found here at the
+      <a href="/docs/index.html" target="_blank">docs</a>
+    </h4>
+  </div>
 </template>
