@@ -13,9 +13,6 @@ Template.chat.helpers({
     let allMesagesFromDataBase = arrFromDb.reverse();
     let allMessagesSpliced = allMesagesFromDataBase.reverse();
     return allMessagesSpliced;
-  },
-  getRandomColor () {
-    return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
   }
 });
 
@@ -47,9 +44,25 @@ Template.chat.events({
   }
 });
 
+// Template.chatroom.events({
+
+// });
+
 const charToColor = (uid) => {
   const letterNumber = uid.charCodeAt(0)
-  if (letterNumber >= 60 && letterNumber <= 70)
+  if (letterNumber >= 48 && letterNumber <= 52)
+      {
+        return 'rgb(255,153,170)';
+        // pink
+      }
+
+    else if (letterNumber >= 53 && letterNumber <= 57)
+      {
+        return 'rgb(170, 153, 255)';
+        // lavender
+      }
+
+    else if (letterNumber >= 60 && letterNumber <= 70)
       {
         return 'rgb(239, 83, 80)';
         // red

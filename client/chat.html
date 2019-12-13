@@ -4,10 +4,12 @@
   {{> mainTitle}}
   {{> navbar }}
   {{#if currentUser}}
+  <!-- <body style = "background-color: rgba(102,117,241,0.8);"> -->
   <div class="messages-box">
     <div class="messages-scroll">
       <div class="header">
         <h1>Welcome to Epicenter Chat!</h1>
+        <button>Make a Chat Room</button>
       </div>
 
 
@@ -32,6 +34,7 @@
       /><button type="submit">Send</button>
     </form>
   </div>
+<!-- </body> -->
   {{else}}
   {{> notLoggedIn}}
   {{/if}}
